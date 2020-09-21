@@ -13,13 +13,14 @@ pip install -r requirements.txt
 python -m unittest  TestData.py
 ```
 
-What the test does:
+The test objectives:
 
 ```text
-load csv data as a pyarrow.Table 
+load csv data into pyarrow.Table #1 
 extract and transform csv data to parquet
 save parquet data
-load parquest data as another pyarrow.Table
+load parquest data into pyarrow.Table #2
 compare the 2 pyarrow.Tables (csv and parquet)
+assert the schema, sample content are equal
 display the data as a pandasTable
 ```
