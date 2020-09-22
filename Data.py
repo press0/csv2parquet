@@ -20,6 +20,12 @@ class Data:
         self.__parquetData = pq.read_table(self.__ParquetFileName)
         print(f'load {self.__ParquetFileName}')
 
+    def loadParquetFromFile(self, fileName):
+        self.__ParquetFileName = fileName
+        self.__csvFileName = fileName.replace('parquet', 'csv')
+        self.__parquetData = pq.read_table(self.__ParquetFileName)
+        print(f'load {self.__ParquetFileName}')
+
     def getCsv(self):
         return self.__csvData
 

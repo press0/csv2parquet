@@ -6,7 +6,7 @@ class TestData(unittest.TestCase):
         self.data = Data()
 
 
-class TestCsvData(TestData):
+class TestData(TestData):
 
     def test_csv_to_parquet_etl(self):
 
