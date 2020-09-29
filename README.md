@@ -1,8 +1,15 @@
 ## csv2parquet
 
+Simple [Apache Arrow](https://arrow.apache.org/overview/) CSV <=> Parquet transform utility.
+  
+ - [CSV2Parquet.py](CSV2Parquet.py)
+
+#### Motivation
+Big data platforms rely on Parquet; data analysts rely on CSV. 
+ 
 #### Getting Started
 
-Install this application by running the following commands:
+Install the application by running the following commands:
 
 ```bash
 git clone https://github.com/press0/csv2parquet.git
@@ -10,34 +17,41 @@ cd csv2parquet
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python -m unittest  Test*.py
 ```
 
-#### Test objectives
+#### Test objective
 
-transform CSV file into Parquet columnar file
- - [Data.py](Data.py)
- - [TestData.py](TestData.py)
+verify the CSV <=> Parquet transform is reversible.  
+
+Approach:
+  
+    transform a csv file into a Parquet file  
+    transform the Parquet file back to a 2nd CSV file  
+    transform the 2 CSV files into Pandas DataFrames  
+    compare the two Pandas DataFrames for equality
+
+ - [TestCSV2Parquet.py](TestCSV2Parquet.py)
 
 ```text
-load csv data into pyarrow.Table #1 
-extract and transform csv data to parquet
-save parquet data
-load parquest data into pyarrow.Table #2
-compare the 2 pyarrow.Tables (csv and parquet)
-assert the schema, sample content are equal
-display the data as a pandasTable
+python TestCSV2Parquet.py
 ```
 
-Repeat with AWS Glue
+###AWS Glue ETL
+
+this PySpark script performs the CSV to Parquet transform on the AWS Glue service
  - [AwsCvs2ParquetGlue.py](AwsCvs2ParquetGlue.py)
-- [TestAwsCvs2ParquetGlue.py](TestAwsCvs2ParquetGlue.py)
 
-```text
-AWS setup: create AWS Glue crawler, table, job, iam, s3 resources  
-upload csv file to s3
-run glue job
-download parquet file from s3
-load parquest data into pyarrow.Table
-```
-
+Approach:
+    
+    create AWS Glue crawler  
+    create AWS Glue Data Catalog table  
+    create AWS Glue ETL job 
+    create AWS IAM policy   
+    create AWS S3 bucket   
+    upload CSV file to S3
+    run AWS Glue crawler
+    run AWS Glue ETL job
+    download Parquet file from S3
+    load parquest data into pyarrow.Table
+   
+ todo: CloudFormation template
