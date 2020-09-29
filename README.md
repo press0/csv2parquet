@@ -36,7 +36,7 @@ Approach:
 python TestCSV2Parquet.py
 ```
 
-###AWS Glue ETL
+### AWS Glue ETL
 
 this PySpark script performs the CSV to Parquet transform on the AWS Glue service
  - [AwsCvs2ParquetGlue.py](AwsCvs2ParquetGlue.py)
