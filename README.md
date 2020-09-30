@@ -1,7 +1,6 @@
-## csv2parquet
 
-Simple [Apache Arrow](https://arrow.apache.org/overview/) CSV <=> Parquet transform utility.
-  
+#### CSV <=> Parquet transform utility powered by [Apache Arrow](https://arrow.apache.org/overview/).  
+Apache Arrow powers the [Apache Parquet](https://parquet.apache.org/)  and [Apache Spark](https://spark.apache.org/) projects.
  - [CSV2Parquet.py](CSV2Parquet.py)
 
 #### Motivation
@@ -36,9 +35,9 @@ Approach:
 python TestCSV2Parquet.py
 ```
 
-### AWS Glue ETL
+#### CSV <=> Parquet transform with AWS Glue 
 
-this PySpark script performs the CSV to Parquet transform on the AWS Glue service
+PySpark script performs the CSV to Parquet transform on the AWS Glue service
  - [AwsCvs2ParquetGlue.py](AwsCvs2ParquetGlue.py)
 
 Approach:
@@ -54,4 +53,5 @@ Approach:
     download Parquet file from S3
     load parquest data into pyarrow.Table
    
- todo: CloudFormation template
+
+### Next up:  [AWS Glue Container development](https://github.com/press0/AWS-Glue-container-development)
