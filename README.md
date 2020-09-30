@@ -5,7 +5,7 @@ Simple [Apache Arrow](https://arrow.apache.org/overview/) CSV <=> Parquet transf
  - [CSV2Parquet.py](CSV2Parquet.py)
 
 #### Motivation
-Big data platforms rely on Parquet; data analysts rely on CSV. 
+Cloud data platforms rely on Parquet; data analysts rely on CSV. 
  
 #### Getting Started
 
