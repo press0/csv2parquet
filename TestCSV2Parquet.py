@@ -15,7 +15,6 @@ class TestCSV2Parquet(unittest.TestCase):
         PARQUET_FILE = 'resources/prices.parquet'
         CSV_FILE2 = 'resources/prices.out.csv'
         data = CSV2Parquet()
-        data2 = CSV2Parquet()
 
         # act
         data.load_from_file(csv_file=CSV_FILE)
@@ -28,8 +27,8 @@ class TestCSV2Parquet(unittest.TestCase):
         data.save_parquet_as_csv_file(csv_file=CSV_FILE2)
 
         # load 2nd csv file
-        data2.load_from_file(csv_file=CSV_FILE2)
-        csv_table2 = data2.get_csv()
+        data.load_from_file(csv_file=CSV_FILE2)
+        csv_table2 = data.get_csv()
         pandas_table2 = csv_table2.to_pandas()
 
         # assert
@@ -47,7 +46,6 @@ class TestCSV2Parquet(unittest.TestCase):
         CSV_FILE = 'resources/prices.csv'
         CSV_FILE3 = 'resources/prices3.csv'
         data = CSV2Parquet()
-        data2 = CSV2Parquet()
 
         # act
         data.load_from_file(csv_file=CSV_FILE)
@@ -55,8 +53,8 @@ class TestCSV2Parquet(unittest.TestCase):
         pandas_table = csv_table.to_pandas()
 
         # load second csv file
-        data2.load_from_file(csv_file=CSV_FILE3)
-        csv_table2 = data2.get_csv()
+        data.load_from_file(csv_file=CSV_FILE3)
+        csv_table2 = data.get_csv()
         pandas_table2 = csv_table2.to_pandas()
 
         # assert
